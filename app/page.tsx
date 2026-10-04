@@ -32,8 +32,31 @@ import {
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+interface MenuItem {
+  id: string;
+  name: string;
+  category: string;
+  badge: string;
+  description: string;
+  tastingNotes: string;
+  ingredients: string;
+  image: string;
+  featured: boolean;
+  prepTime: string;
+  pairWith: string;
+  price?: string;
+}
+
+interface GalleryImage {
+  id: number;
+  title: string;
+  category: string;
+  image: string;
+  caption: string;
+}
+
 // Signature coffee and food item catalog with rich metadata
-const MENU_ITEMS = [
+const MENU_ITEMS: MenuItem[] = [
   {
     id: 'c1',
     name: 'Pistachio Latte',
@@ -140,7 +163,7 @@ const MENU_ITEMS = [
   }
 ];
 
-const GALLERY_IMAGES = [
+const GALLERY_IMAGES: GalleryImage[] = [
   {
     id: 1,
     title: 'Warm Welcoming Interiors',
@@ -219,9 +242,9 @@ export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [menuFilter, setMenuFilter] = useState('All Items');
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedFood, setSelectedFood] = useState(null);
+  const [selectedFood, setSelectedFood] = useState<MenuItem | null>(null);
   const [galleryFilter, setGalleryFilter] = useState('All Photos');
-  const [selectedGalleryImg, setSelectedGalleryImg] = useState(null);
+  const [selectedGalleryImg, setSelectedGalleryImg] = useState<GalleryImage | null>(null);
   
   // Contact Form State
   const [contactForm, setContactForm] = useState({ name: '', phone: '', note: '' });
@@ -244,7 +267,7 @@ export default function App() {
   });
 
   // Smooth scroll helper
-  const scrollToSection = (id) => {
+  const scrollToSection = (id: string) => {
     setMobileMenuOpen(false);
     const element = document.getElementById(id);
     if (element) {
@@ -252,7 +275,7 @@ export default function App() {
     }
   };
 
-  const handleContactSubmit = (e) => {
+  const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (contactForm.name && contactForm.phone) {
       setFormSubmitted(true);
@@ -1045,9 +1068,6 @@ export default function App() {
                         <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-950 text-amber-300 shadow-md">
                           {item.badge}
                         </span>
-                      </div>
-                      <div className="absolute bottom-3 right-3 bg-white/95 backdrop-blur-md text-emerald-950 font-black px-3 py-1 rounded-lg text-base border border-stone-200 shadow-md">
-                        {item.price}
                       </div>
                     </div>
 
