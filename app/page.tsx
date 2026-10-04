@@ -532,7 +532,6 @@ export default function App() {
               { name: 'Gallery & Ambience', id: 'gallery' },
               { name: 'Guest Reviews', id: 'reviews' },
               { name: 'Location & Map', id: 'location' },
-              { name: 'Contact Inquiries', id: 'contact' },
             ].map((link) => (
               <button
                 key={link.id}
@@ -1387,92 +1386,6 @@ export default function App() {
 
         </div>
       </section>
-
-      {}
-      <section id="contact" className="py-24 bg-white text-stone-900 transition-colors">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center space-y-4 mb-12">
-            <span className="text-xs font-bold uppercase tracking-widest text-emerald-900 px-3.5 py-1.5 rounded-md bg-emerald-100">
-              Come. Stay. Sip. Enjoy.
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold font-serif text-stone-900">
-              General Inquiries & Feedback
-            </h2>
-            <p className="text-stone-600 text-base">
-              Have a question, feedback, or hosting a private family get-together? Send us a quick note below.
-            </p>
-          </div>
-
-          <div className="bg-stone-50 border border-stone-200 p-8 sm:p-10 rounded-3xl shadow-sm">
-            {formSubmitted ? (
-              <div className="text-center py-12 space-y-4 animate-in fade-in duration-500">
-                <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center mx-auto">
-                  <CheckCircle2 className="w-10 h-10" />
-                </div>
-                <h3 className="text-2xl font-bold font-serif text-stone-900">Thank You!</h3>
-                <p className="text-stone-600 text-sm max-w-md mx-auto">
-                  Your inquiry has been received. Our team at WAB Coffee Co. Palwal will get back to you shortly.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleContactSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase text-stone-700 tracking-wider">
-                      Your Name *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. Rahul Sharma"
-                      value={contactForm.name}
-                      onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-stone-300 text-stone-900 focus:ring-2 focus:ring-emerald-950 text-sm outline-none"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase text-stone-700 tracking-wider">
-                      Phone Number *
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      placeholder="e.g. 98765 43210"
-                      value={contactForm.phone}
-                      onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-stone-300 text-stone-900 focus:ring-2 focus:ring-emerald-950 text-sm outline-none"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase text-stone-700 tracking-wider">
-                    Message / Special Request
-                  </label>
-                  <textarea
-                    rows={4}
-                    placeholder="How can we assist you?"
-                    value={contactForm.note}
-                    onChange={(e) => setContactForm({ ...contactForm, note: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-stone-300 text-stone-900 focus:ring-2 focus:ring-emerald-950 text-sm outline-none resize-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full py-4 rounded-xl bg-emerald-950 hover:bg-emerald-900 text-white font-bold text-base shadow-lg transition-colors flex items-center justify-center gap-2"
-                >
-                  <Send className="w-4 h-4 text-amber-400" />
-                  Submit Inquiry
-                </button>
-              </form>
-            )}
-          </div>
-
-        </div>
-      </section>
-
       {}
       <footer className="bg-emerald-950 text-stone-300 border-t border-emerald-900 pt-16 pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
